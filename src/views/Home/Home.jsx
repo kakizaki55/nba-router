@@ -20,7 +20,7 @@ export default function Home() {
         <ul>
           {artworkList.map((artwork) => {
             return (
-              <Link key={artwork.id} to={`/artwork/:${artwork.id}`}>
+              <Link key={artwork.id} to={`/artwork/${artwork.id}`}>
                 <ArtWorkCard key={artwork.id} artwork={artwork} />;
               </Link>
             );
