@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArtWorkCard from '../../components/ArtworkCard/ArtWorkCard';
 import { fetchArtWork } from '../../services/fetch';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [artworkList, setArtWorkList] = useState([]);
@@ -12,14 +13,17 @@ export default function Home() {
     };
     fectData();
   }, []);
-  console.log(artworkList);
 
   return (
     <>
       <dvi>
         <ul>
           {artworkList.map((artwork) => {
-            return <ArtWorkCard key={artwork.id} artwork={artwork} />;
+            return (
+              <Link key={artwork.id} to={`/artwork/:${artwork.id}`}>
+                <ArtWorkCard key={artwork.id} artwork={artwork} />;
+              </Link>
+            );
           })}
         </ul>
       </dvi>
